@@ -1,0 +1,3 @@
+[submodule "predict_tc"]
+	path = predict_tc
+	url = https://github.com/khamidieh/predict_tc.git
