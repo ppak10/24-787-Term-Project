@@ -1,4 +1,5 @@
-FROM jupyter/r-notebook
+# Using R version 4.2 causes issues when installing `pyCHNOSZ`.
+FROM jupyter/r-notebook:r-4.1.3
 
 # Grants `sudo` privledges to install TeX related packages.
 ENV GRANT_SUDO yes

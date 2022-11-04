@@ -16,3 +16,9 @@ Term Project Repository
 
 ## Notes
 1. Include newly installed conda packages with `conda env export > environment.yml`.
+
+## Troubleshooting
+1. If submodule folder are empty run, clone all submodules with:
+    ```shell
+    git submodule update
+    ```
