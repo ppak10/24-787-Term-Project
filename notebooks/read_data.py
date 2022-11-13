@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 from sklearn.model_selection import train_test_split
 
-def load_and_split(train_size: float=0.66, random_state: int = 42):
+def load_and_split(train_size: float=0.66, random_state: int = 42, verbose: bool = False):
     """
     Since the original data for the superconducting materials list obtained from
     [Japan's National Institute for Materials Science (NIMS)]
@@ -33,12 +33,13 @@ def load_and_split(train_size: float=0.66, random_state: int = 42):
     training_y = training_data[:,headers_length-1:headers_length]
     testing_y = testing_data[:,headers_length-1:headers_length]
 
-    # Prints shape of csv, training, and testing data.
-    print(f"Data Shape: {np.shape(data_df)}")
-    print(f"Training Features Shape: {training_X.shape}")
-    print(f"Training Labels Shape: {training_y.shape}")
-    print(f"Testing Features Shape: {testing_X.shape}")
-    print(f"Testing Labels Shape: {testing_y.shape}")
-    print(f"Training Size: {train_size} vs. Testing Size: {1 - train_size}")
+    if verbose:
+        # Prints shape of csv, training, and testing data.
+        print(f"Data Shape: {np.shape(data_df)}")
+        print(f"Training Features Shape: {training_X.shape}")
+        print(f"Training Labels Shape: {training_y.shape}")
+        print(f"Testing Features Shape: {testing_X.shape}")
+        print(f"Testing Labels Shape: {testing_y.shape}")
+        print(f"Training Size: {train_size} vs. Testing Size: {1 - train_size}")
 
     return training_X, training_y, testing_X, testing_y
