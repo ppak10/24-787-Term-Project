@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 from sklearn.model_selection import train_test_split
 
-def load_and_split(train_size: float=0.66, random_state: int = 42, verbose: bool = False):
+def load_and_split(train_size: float=0.66, random_state: int = 42, verbose: bool = False, file="./dataset.csv"):
     """
     Since the original data for the superconducting materials list obtained from
     [Japan's National Institute for Materials Science (NIMS)]
@@ -10,7 +10,10 @@ def load_and_split(train_size: float=0.66, random_state: int = 42, verbose: bool
     not found a way to reproduce the preprocessing steps outlined in the paper.
     """
     # Utilizes provided preprocessed training data
-    data_df = pd.read_csv('../uci_supercondutor_data/train.csv')
+    data_df = pd.read_csv(file)
+
+    if (file == "./dataset_reduced.csv"):
+        data_df = data_df.iloc[:, 1:]
 
     # Splits training and testing data.
     train, test = train_test_split(
